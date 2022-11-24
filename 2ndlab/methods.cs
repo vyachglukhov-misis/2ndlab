@@ -1,11 +1,5 @@
-using System;
 using System.Globalization;
-using System.Net.NetworkInformation;
-using System.Runtime.CompilerServices;
-using System.Text.Json;
-using System.Xml;
 using Newtonsoft.Json;
-using showallstudents;
 using student;
 namespace methods {
     class Methods {
@@ -56,7 +50,7 @@ namespace methods {
             if (line == "birthdayDate")
             {
                 bool flag = true;
-                do
+                while(flag)
                 {
                     try
                     {
@@ -68,7 +62,7 @@ namespace methods {
                         Console.WriteLine(prompt);
                         input = Console.ReadLine();
                     }
-                } while (flag);
+                }
             
             }
             return BirthdayDate; 

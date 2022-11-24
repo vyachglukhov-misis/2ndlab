@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
 using findstudent;
 
+
 namespace SecondLab
 {
 
@@ -15,6 +16,7 @@ namespace SecondLab
         static AddNewStudentTask AddNewStudent = new AddNewStudentTask();
         static ShowAllStudentsTask ShowStudents = new ShowAllStudentsTask();
         static Methods methods = new Methods();
+        static FindStudentMethods findStudentMethods = new FindStudentMethods();
         static Student[] students = methods.RefreshStudentListState();
 
         public static void StartMainMenu()
@@ -70,6 +72,7 @@ namespace SecondLab
             switch (selectedIndex)
             {
                 case 0:
+                    RunSurnameSearch();
                     break;
                 case 1:
                     break;
@@ -87,10 +90,10 @@ namespace SecondLab
             void RunSurnameSearch()
             {
                 Console.Clear();
-            }
-            void SurnameSearch()
-            {
-
+                findStudentMethods.AdvancedSurnameSearch(students);
+                Console.WriteLine("Press any key to return for sub menu");
+                Console.ReadKey(true);
+                RunSubMenuSearch();
             }
         }
         public static void Main(string[] args)

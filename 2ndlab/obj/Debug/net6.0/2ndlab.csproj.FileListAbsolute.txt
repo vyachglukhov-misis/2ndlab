@@ -1,0 +1,17 @@
+C:\Users\nikgl\Desktop\labradornye\2ndlab\2ndlab\obj\Debug\net6.0\2ndlab.csproj.AssemblyReference.cache
+C:\Users\nikgl\Desktop\labradornye\2ndlab\2ndlab\obj\Debug\net6.0\2ndlab.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nikgl\Desktop\labradornye\2ndlab\2ndlab\obj\Debug\net6.0\2ndlab.AssemblyInfoInputs.cache
+C:\Users\nikgl\Desktop\labradornye\2ndlab\2ndlab\obj\Debug\net6.0\2ndlab.AssemblyInfo.cs
+C:\Users\nikgl\Desktop\labradornye\2ndlab\2ndlab\obj\Debug\net6.0\2ndlab.csproj.CoreCompileInputs.cache
+C:\Users\nikgl\Desktop\labradornye\2ndlab\2ndlab\bin\Debug\net6.0\2ndlab.exe
+C:\Users\nikgl\Desktop\labradornye\2ndlab\2ndlab\bin\Debug\net6.0\2ndlab.deps.json
+C:\Users\nikgl\Desktop\labradornye\2ndlab\2ndlab\bin\Debug\net6.0\2ndlab.runtimeconfig.json
+C:\Users\nikgl\Desktop\labradornye\2ndlab\2ndlab\bin\Debug\net6.0\2ndlab.dll
+C:\Users\nikgl\Desktop\labradornye\2ndlab\2ndlab\bin\Debug\net6.0\2ndlab.pdb
+C:\Users\nikgl\Desktop\labradornye\2ndlab\2ndlab\obj\Debug\net6.0\2ndlab.dll
+C:\Users\nikgl\Desktop\labradornye\2ndlab\2ndlab\obj\Debug\net6.0\refint\2ndlab.dll
+C:\Users\nikgl\Desktop\labradornye\2ndlab\2ndlab\obj\Debug\net6.0\2ndlab.pdb
+C:\Users\nikgl\Desktop\labradornye\2ndlab\2ndlab\obj\Debug\net6.0\2ndlab.genruntimeconfig.cache
+C:\Users\nikgl\Desktop\labradornye\2ndlab\2ndlab\obj\Debug\net6.0\ref\2ndlab.dll
+C:\Users\nikgl\Desktop\labradornye\2ndlab\2ndlab\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\nikgl\Desktop\labradornye\2ndlab\2ndlab\obj\Debug\net6.0\2ndlab.csproj.CopyComplete

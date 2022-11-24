@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\рофланбулдыга\\Desktop\\2ndlab\\2ndlab\\2ndlab.csproj": {}
+    "C:\\Users\\nikgl\\Desktop\\labradornye\\2ndlab\\2ndlab\\2ndlab.csproj": {}
   },
   "projects": {
-    "C:\\Users\\рофланбулдыга\\Desktop\\2ndlab\\2ndlab\\2ndlab.csproj": {
+    "C:\\Users\\nikgl\\Desktop\\labradornye\\2ndlab\\2ndlab\\2ndlab.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\рофланбулдыга\\Desktop\\2ndlab\\2ndlab\\2ndlab.csproj",
+        "projectUniqueName": "C:\\Users\\nikgl\\Desktop\\labradornye\\2ndlab\\2ndlab\\2ndlab.csproj",
         "projectName": "2ndlab",
-        "projectPath": "C:\\Users\\рофланбулдыга\\Desktop\\2ndlab\\2ndlab\\2ndlab.csproj",
-        "packagesPath": "C:\\Users\\рофланбулдыга\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\рофланбулдыга\\Desktop\\2ndlab\\2ndlab\\obj\\",
+        "projectPath": "C:\\Users\\nikgl\\Desktop\\labradornye\\2ndlab\\2ndlab\\2ndlab.csproj",
+        "packagesPath": "C:\\Users\\nikgl\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nikgl\\Desktop\\labradornye\\2ndlab\\2ndlab\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\рофланбулдыга\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nikgl\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

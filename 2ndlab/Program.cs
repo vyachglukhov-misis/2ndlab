@@ -6,7 +6,8 @@ using addstudent;
 using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
 using findstudent;
-
+using sortstudentmethods;
+using System.Reflection.Metadata;
 
 namespace SecondLab
 {
@@ -15,6 +16,7 @@ namespace SecondLab
     {
         static AddNewStudentTask AddNewStudent = new AddNewStudentTask();
         static ShowAllStudentsTask ShowStudents = new ShowAllStudentsTask();
+        static SortStudentsMethods sortStudentsMethods= new SortStudentsMethods();
         static Methods methods = new Methods();
         static FindStudentMethods findStudentMethods = new FindStudentMethods();
         static Student[] students = methods.RefreshStudentListState();
@@ -23,7 +25,7 @@ namespace SecondLab
         {
 
             string startPrompt = "Lab #2 Vyach Glukhov. MISIS 2022";
-            string[] options = { "ADD STUDENT", "SHOW ALL STUDENTS", "FIND USERS" , "REMOVE IDENTICAL STUDENTS"};
+            string[] options = { "ADD STUDENT", "SHOW ALL STUDENTS", "FIND STUDENTS", "SORT BY AVG MARK" , "REMOVE IDENTICAL STUDENTS", "EXIT"};
             Menu mainMenu = new Menu(startPrompt, options);
             int selectedIndex = mainMenu.Run();
 
@@ -39,6 +41,13 @@ namespace SecondLab
                     RunSubMenuSearch();
                     break;
                 case 3:
+                    RunSortStudentsAvgMark();
+                    break;
+                case 4:
+                    RunRemoveIdenticalStudents();
+                    break;
+                case 5:
+                    Exit();
                     break;
             }
 
@@ -52,6 +61,10 @@ namespace SecondLab
             Console.ReadKey(true);
             StartMainMenu();
         }
+        static private void Exit()
+        {
+            Environment.Exit(0);
+        }
         private static void RunShowAllStudentsTask()
         {
             Console.Clear();
@@ -60,12 +73,31 @@ namespace SecondLab
             Console.ReadKey(true);
             StartMainMenu();
         }
+        private static void RunSortStudentsAvgMark() {
+            Console.Clear();
+            StudentMethods.OutputStudentList(sortStudentsMethods.AvgSort(students, 0, students.Length - 1));
+            Console.WriteLine("Press any key to return for main menu");
+            Console.ReadKey(true);
+            StartMainMenu();
+
+        }
+        private static void RunRemoveIdenticalStudents()
+        {
+            FindStudentMethods findStudentMethods= new FindStudentMethods();
+            Console.Clear();
+            Student[] newStudentList = findStudentMethods.RemoveIdenticalStudents(students);
+            StudentMethods.OutputStudentList(newStudentList);
+            methods.SaveSerializedJSON(newStudentList);
+            students = methods.RefreshStudentListState();
+            Console.WriteLine("Identical students were removed from Student list. Press any key to return main menu...");
+            Console.ReadKey(true);
+            StartMainMenu();
+        }
         private static void RunSubMenuSearch()
         {
-            FindStudentMethods findStudentMethods = new FindStudentMethods();
             Console.Clear();
             string subMenuPrompt = "Select the option by the one you want to find student";
-            string[] options = { "SURNAME SEARCH", "BDAY DATE SEARCH", "FIND MAX AND MIN AVERAGE MARK`S STUDENTS", "RETURN TO MAIN MENU" };
+            string[] options = { "SURNAME SEARCH", "BDAY DATE SEARCH", "FIND MAX AND MIN AVERAGE MARK`S STUDENTS","FIND THE SAME AVGMARKED STUDENTS",  "RETURN TO MAIN MENU" };
             Menu subSearchMenu = new Menu(subMenuPrompt, options);
             int selectedIndex = subSearchMenu.Run();
 
@@ -75,23 +107,53 @@ namespace SecondLab
                     RunSurnameSearch();
                     break;
                 case 1:
+                    RunBirthDaySearch();
                     break;
                 case 2:
+                    RunMaxAVGMarkedStudents();
                     break;
                 case 3:
+                    RunTheSameAvgMarkedStudents();
+                    break;
+                case 4:
                     ReturnToMainMenu();
                     break;
+            }
+            void RunBirthDaySearch()
+            {
+                Console.Clear();
+                StudentMethods.OutputStudentList(findStudentMethods.BirthdaySearch(students, Console.ReadLine()));
+                Console.WriteLine("Press any key to return for main menu");
+                Console.ReadKey(true);
+                RunSubMenuSearch();
             }
             void ReturnToMainMenu()
             {
                 Console.Clear();
                 StartMainMenu();
             }
+            void RunMaxAVGMarkedStudents(){
+                Console.Clear();
+                Console.WriteLine("MAX AVGMARKED STUDENTS");
+                StudentMethods.OutputStudentList(findStudentMethods.FindMaxAvgmarkedStudent(students));
+                Console.WriteLine();
+                Console.WriteLine("MIN AVGMARKED STUDENTS");
+                StudentMethods.OutputStudentList(findStudentMethods.FindMinAvgmarkedStudent(students));
+                Console.WriteLine("Press any key to return for main menu");
+                Console.ReadKey(true);
+                RunSubMenuSearch();
+            }
             void RunSurnameSearch()
             {
                 Console.Clear();
                 findStudentMethods.AdvancedSurnameSearch(students);
-                Console.WriteLine("Press any key to return for sub menu");
+                RunSubMenuSearch();
+            }
+            void RunTheSameAvgMarkedStudents()
+            {
+                Console.Clear();
+                methods.OutputStudentsMatrix(findStudentMethods.theSameAvgMarkStudentsSearch(students));
+                Console.WriteLine("Press any key to return for main menu");
                 Console.ReadKey(true);
                 RunSubMenuSearch();
             }

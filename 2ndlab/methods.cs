@@ -13,26 +13,39 @@ namespace methods {
         public Student[] RefreshStudentListState()
         {
             string json = File.ReadAllText(@"C:\\Users\\nikgl\\Desktop\\labradornye\\2ndlab\\2ndlab\\students.json");
+            if (json == "")
+            {
+                json = "[{}]";
+            }
             Student[] students = JsonConvert.DeserializeObject<Student[]>(json);
             return students;
+        }
+        public void OutputStudentsMatrix(Student[][] students)
+        {
+            for(int i = 0; i<students.Length; i++)
+            {
+                StudentMethods.OutputStudentList(students[i]);
+                Console.WriteLine();
+            }
         }
         public float TryParseInput__Float(string input, string prompt, string line)
         {
             float avgResult = 0;
-            if (line == "avgresult")
+            if (line == "avgmark")
             {
                 bool flag = true;
                 do
                 {
                     try
                     {
-                        if (int.Parse(input) != 0 && float.Parse(input) == 0)
+                        if(float.Parse(input)==0.0f)
                         {
                             throw new Exception();
                         }
                         else
                         {
                             avgResult = float.Parse(input);
+                            flag=false;
                         }
                     }
                     catch
@@ -43,6 +56,28 @@ namespace methods {
                 } while (flag);
             }
             return avgResult;
+        }
+        public int TryParse__Int(string input, string prompt, string line) {
+            int debts = new int();
+            if (line == "debts")
+            {
+                bool flag = true;
+                while (flag)
+                {
+                    try
+                    {
+                        debts = int.Parse(input);
+                        flag = false;
+                    }
+                    catch
+                    {
+                        Console.WriteLine(prompt);
+                        input = Console.ReadLine();
+                    }
+                }
+
+            }
+            return debts;
         }
         public DateTime TryParseInput__Date(string input, string prompt, string line)
         {
@@ -93,7 +128,7 @@ namespace methods {
                     }
                 } while (flag);
             }
-            if (name == "course" || name == "institute" || name == "group")
+            if (name == "course" || name == "institute" || name == "group" || name == "educationalform" || name == "qualification")
             {
                 bool flag = true;
                 do
